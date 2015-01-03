@@ -3,8 +3,13 @@
 angular.module('dorshaApp')
     .controller('MainCtrl', function ($scope, $rootScope) {
 
+        var small = $(window).width() < 482;
+        var header = small ?
+            ['^1500Hi^1500', 'My name is\nDoron Sharon^1500', 'You can call me\ndorsha^200'] :
+            ['^1500Hi^1500', 'My name is Doron Sharon^1500', 'You can call me dorsha^200'];
+
         $rootScope.messages = {
-            header: ['^1500Hi^1500', 'My name is Doron Sharon^1500', 'You can call me dorsha^200']
+            header: header
         };
 
         $scope.type = function (elemendId, commands, loop, typeSpeed) {
