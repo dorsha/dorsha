@@ -11,12 +11,12 @@ body {
     line-height: 2em;
     color: #d4f8e3;
     text-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
-    -moz-animation: skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;
-    -webkit-animation: skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;
-    animation: skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;
-    /*-moz-animation: blink 0.3s steps(2, start) infinite, skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;*/
-    /*-webkit-animation: blink 0.3s steps(2, start) infinite, skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;*/
-    /*animation: blink 0.3s steps(2, start) infinite, skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;*/
+    /*-moz-animation: skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;*/
+    /*-webkit-animation: skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;*/
+    /*animation: skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;*/
+    -moz-animation: blink 0.3s steps(2, start) infinite, skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;
+    -webkit-animation: blink 0.3s steps(2, start) infinite, skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;
+    animation: blink 0.3s steps(2, start) infinite, skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;
 }
 
 .h3 {
@@ -156,4 +156,11 @@ section {
     #not-found body {
         font-size: 18px;
     }
+}
+
+::selection {
+    background: #a8d4ad;
+}
+::-moz-selection {
+    background: #a8d4ad;
 }
