@@ -164,3 +164,12 @@ section {
 ::-moz-selection {
     background: #a8d4ad;
 }
+
+.fade {
+    transition: 1.5s linear all;
+    opacity: 1;
+}
+
+.fade.ng-hide {
+    opacity: 0;
+}

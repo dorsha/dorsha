@@ -4,7 +4,7 @@ angular.module('dorshaApp')
     .controller('MainCtrl', function ($scope, $rootScope) {
 
         $rootScope.messages = {
-            header: ['^1500Hi^1500', 'My name is Doron Sharon^1500', 'You can call me dorsha']
+            header: ['^1500Hi^1500', 'My name is Doron Sharon^1500', 'You can call me dorsha^200']
         };
 
         $scope.type = function (elemendId, commands, loop, typeSpeed) {
@@ -13,7 +13,11 @@ angular.module('dorshaApp')
                 strings: commands,
                 typeSpeed: typeSpeed || 30,
                 loop: loop || false,
-                backSpeed: 5
+                backSpeed: 5,
+                callback: function() {
+                    $scope.typedFinished = true;
+                    $scope.$apply();
+                }
             });
         };
     });
