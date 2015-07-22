@@ -28,12 +28,13 @@ module.exports = function (grunt) {
         yeoman: appConfig,
 
 		// upload to github pages
-		'gh-pages': {
-			options: {
-				base: 'dist'
-			},
-			src: ['**']
-		}
+	  'gh-pages': {
+		options: {
+		  base: '<%= yeoman.dist %>',
+		  dotfiles: true
+		},
+		src: ['**/*']
+	  },
 		
         // Watches files for changes and runs tasks based on the changed files
         watch: {
@@ -476,6 +477,16 @@ module.exports = function (grunt) {
         'build'
     ]);
 
+	grunt.registerTask('testBuildAndPublish', [
+        'default',
+		'buildAndPublish'
+    ]);
+	
+	grunt.registerTask('buildAndPublish', [
+        'build',
+		'gh-pages'
+    ]);
+	
     grunt.registerTask('heroku:production', 'build');
 
     grunt.loadTasks('tasks');
