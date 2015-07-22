@@ -446,6 +446,7 @@ module.exports = function (grunt) {
         grunt.task.run(['serve:' + target]);
     });
 
+	/*
     grunt.registerTask('test', [
         'clean:server',
         'concurrent:test',
@@ -453,7 +454,7 @@ module.exports = function (grunt) {
         'connect:test',
         'karma'
     ]);
-
+*/
     grunt.registerTask('build', [
         'clean:dist',
         'wiredep',
@@ -477,7 +478,6 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('testBuildAndPublish', [
         'newer:jshint',
-        'test',
 		'buildAndPublish'
     ]);
 	
