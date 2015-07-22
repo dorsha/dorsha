@@ -472,13 +472,12 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('default', [
-        'newer:jshint',
-        'test',
         'build'
     ]);
 
 	grunt.registerTask('testBuildAndPublish', [
-        'default',
+        'newer:jshint',
+        'test',
 		'buildAndPublish'
     ]);
 	
