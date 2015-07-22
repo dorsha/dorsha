@@ -4,6 +4,7 @@ node_js:
 before_script:
   - 'npm install -g bower grunt-cli'
   - 'bower install'
+  - 'grunt build'
 deploy:
   provider: divshot
   api_key: go5j1EoGA3vQz4RW4RpHdhMHfzL-t2236Q15K7SI
