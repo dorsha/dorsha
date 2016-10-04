@@ -10,8 +10,11 @@ dependencies:
     - bower install
   post:
     - grunt build
+test:
+  override:
+    - echo "test"
 deployment:
   production:
     branch: master
     commands:
-      - ./node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN -P glaring-heat-162
+      - ./node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
