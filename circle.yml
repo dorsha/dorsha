@@ -4,7 +4,7 @@ machine:
 dependencies:
   pre:
     - npm install -g npm
-    - npm install -g bower grunt-cli'
+    - npm install -g bower grunt-cli
   override:
     - npm install
     - bower install
