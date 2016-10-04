@@ -1,7 +1,0 @@
-- Header with CLI type like.... that write something and then delete and write it again..
-- Use plax... and d3
-- Show all my work and website
-- Contact + Linkdin
-- favicon
-- Add pingdom
-- domain (dorsha and doronsharon)

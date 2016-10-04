@@ -39,7 +39,7 @@
     "marked": "^0.3.2",
     "highlight.js": "^8.3.0",
 	"grunt-gh-pages": "^0.10.0",
-    "firebase-tools": "2.2.0"
+    "firebase-tools": "*"
   },
   "engines": {
     "node": ">=0.10.0"
