@@ -1,4 +1,2 @@
-# dorsha
+# dorsha [![CircleCI](https://circleci.com/gh/dorsha/dorsha.svg?style=svg)](https://circleci.com/gh/dorsha/dorsha)
 dorsha's website
-
-[![Build Status](https://travis-ci.org/dorsha/dorsha.svg?branch=master)](https://travis-ci.org/dorsha/dorsha)
