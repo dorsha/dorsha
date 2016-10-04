@@ -14,5 +14,6 @@ deployment:
   production:
     branch: master
     commands:
+      - ls
       - cd dorsha
       - ./node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
