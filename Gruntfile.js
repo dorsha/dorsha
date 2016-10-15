@@ -35,7 +35,7 @@ module.exports = function (grunt) {
 		},
 		src: ['**/*']
 	  },
-		
+
         // Watches files for changes and runs tasks based on the changed files
         watch: {
             bower: {
@@ -332,6 +332,7 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.dist %>',
                     src: [
                         '*.{ico,png,txt}',
+                        'sitemap.xml',
                         '.htaccess',
                         '*.html',
                         'views/**/*.html',
@@ -446,7 +447,7 @@ module.exports = function (grunt) {
         grunt.task.run(['serve:' + target]);
     });
 
-	
+
     grunt.registerTask('test', [
         'clean:server',
         'concurrent:test',
@@ -481,15 +482,15 @@ module.exports = function (grunt) {
         'test',
 		'buildAndPublish'
     ]);
-	
+
 	grunt.registerTask('buildAndPublish', [
         'build',
 		'gh-pages'
     ]);
-	
+
     grunt.registerTask('heroku:production', 'build');
 
     grunt.loadTasks('tasks');
-	
+
 	grunt.loadNpmTasks('grunt-gh-pages');
 };
