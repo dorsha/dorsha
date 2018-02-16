@@ -19,7 +19,7 @@
         "jQuery-One-Page-Nav": "3.0.0",
         "jquery.transit": "0.9.12",
         "highlightjs": "8.3.0",
-        "typed.js": "*",
+        "typed.js": "1.1.7",
         "pace": "*",
         "components-font-awesome" : "*"
     },
