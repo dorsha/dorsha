@@ -5,7 +5,6 @@ jobs:
       - image: circleci/node:10.15.3
     working_directory: ~/dorsha
     steps:
-      - checkout
       - restore_cache:
           key: npm-dorsha-{{ checksum "package.json" }}
       - run:
