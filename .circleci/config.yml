@@ -9,9 +9,16 @@ jobs:
       - run:
           name: Install dependencies
           command: |
+              echo "Installing latest npm"
               sudo npm install npm@latest -g
+
+              echo "Installing bower and grunt-cli"
               sudo npm install -g bower grunt-cli
+
+              echo "Running npm install"
               npm install
+
+              echo "Running bower install"
               bower install
       - run:
           name: Build
