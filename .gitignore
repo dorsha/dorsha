@@ -11,3 +11,4 @@ tmp
 .idea
 *.log.divshot-cache
 *.log
+package-lock.json
