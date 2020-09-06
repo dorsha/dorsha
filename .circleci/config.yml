@@ -35,6 +35,3 @@ jobs:
               else
                 echo 'Nothing to do.'
               fi
-
-workflows:
-  version: 2
