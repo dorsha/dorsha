@@ -5,8 +5,6 @@ jobs:
       - image: circleci/node:10.15.3
     working_directory: ~/dorsha
     steps:
-      - restore_cache:
-          key: npm-dorsha-{{ checksum "package.json" }}
       - run:
           name: Install dependencies
           command: |
@@ -14,10 +12,6 @@ jobs:
               npm install -g bower grunt-cli
               npm install
               bower install
-      - save_cache:
-          key: npm-dorsha-{{ checksum "package.json" }}
-          paths:
-            - node_modules
       - run:
           name: Build
           command: grunt build
