@@ -36,7 +36,7 @@
     "grunt-express-server": "0.4.19",
     "grunt-open": "0.2.3",
     "body-parser": "1.9.2",
-    "marked": "0.3.9",
+    "marked": "1.1.1",
     "highlight.js": "8.3.0",
     "grunt-gh-pages": "0.10.0",
     "firebase-tools": "3.0.8"
