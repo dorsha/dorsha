@@ -1,0 +1,33 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": false,
+		"jsx": "react",
+		"sourceMap": true,
+		"baseUrl": "src",
+		"paths": {
+			"@testutils/*": ["./testutils/*"],
+			"@components/*": ["./components/*"],
+			"@api/*": ["./api/*"],
+			"@types/*": ["./types/*"],
+			"@utils/*": ["./utils/*"],
+			"@i18n/*": ["./i18n/*"],
+			"@assets/*": ["./assets/*"],
+			"@github/webauthn-json/*": ["../node_modules/@github/webauthn-json/*"]
+		}
+	},
+	"include": ["src", "src/index.tsx", "global.d.ts", "jest.config.ts"],
+	"exclude": ["node_modules", "coverage"]
+}

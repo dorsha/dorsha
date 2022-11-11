@@ -1,14 +1,36 @@
-node_modules
-dist
-public
-.tmp
-.sass-cache
-bower_components
-logs/*
-!.gitkeep
-tmp
+# dependencies
+/node_modules
+
+# production
+/build
+
+npm-debug.log*
+yarn.lock
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# jest output
+coverage
+
+# Mac OS X files
 .DS_Store
-.idea
-*.log.divshot-cache
-*.log
-package-lock.json
+
+# IDE files
+.idea/
+.vscode/
+.history/
+*.vsix
+.ionide
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+THIRD_PARTY_LICENSE
+
+__debug_bin
+.dockerignore
