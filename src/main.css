@@ -198,11 +198,12 @@ section {
 	background: #a8d4ad;
 }
 
-.fade {
-	transition: 1.5s linear all;
-	opacity: 1;
+.hidden {
+	opacity: 0;
 }
 
-.fade.ng-hide {
-	opacity: 0;
+.fade-in {
+	opacity: 1;
+	-webkit-transition: all 2s;
+	transition: all 2s;
 }

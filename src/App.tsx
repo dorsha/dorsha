@@ -39,7 +39,7 @@ const App = () => {
 							</span>
 						</p>
 					</section>
-					{typedFinished && (
+					<div className={!typedFinished ? 'hidden' : 'fade-in'}>
 						<div>
 							<section>
 								<i className="fa fa-heart-o fa-4x" />
@@ -175,32 +175,30 @@ const App = () => {
 								</p>
 							</section>
 						</div>
-					)}
-				</div>
-				{typedFinished && (
-					<div className="footer">
-						<p style={{ float: 'left' }}>
-							<span className="glyphicon glyphicons-luggage" /> Doron Sharon
-							(dorsha){' '}
-							<a
-								href="https://twitter.com/DoronSharon"
-								target="_blank"
-								rel="noreferrer"
-							>
-								<i className="fa fa-twitter fa-2x" />
-							</a>
-						</p>
-						<p style={{ float: 'right' }}>
-							<a
-								href="mailto:doron@dorsha.com"
-								target="_blank"
-								rel="noreferrer"
-							>
-								doron@dorsha.com
-							</a>
-						</p>
+						<div className="footer">
+							<p style={{ float: 'left' }}>
+								<span className="glyphicon glyphicons-luggage" /> Doron Sharon
+								(dorsha){' '}
+								<a
+									href="https://twitter.com/DoronSharon"
+									target="_blank"
+									rel="noreferrer"
+								>
+									<i className="fa fa-twitter fa-2x" />
+								</a>
+							</p>
+							<p style={{ float: 'right' }}>
+								<a
+									href="mailto:doron@dorsha.com"
+									target="_blank"
+									rel="noreferrer"
+								>
+									doron@dorsha.com
+								</a>
+							</p>
+						</div>
 					</div>
-				)}
+				</div>
 			</div>
 		</div>
 	);
