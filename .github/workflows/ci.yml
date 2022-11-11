@@ -3,7 +3,7 @@ name: CI
 on: [push]
 
 env:
-  NODE_VERSION: 16.10
+  NODE_VERSION: 18.12.1
 
 jobs:
   build:
