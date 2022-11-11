@@ -1,0 +1,30 @@
+{
+	"presets": [
+		// adds support for jsx syntax
+		["@babel/preset-react", { "runtime": "automatic" }], // automatic auto imports the functions that JSX transpiles to. classic does not automatic import anything.
+		[
+			//  tells webpack to compile all syntax to ES5 (which browsers understand)
+			"@babel/preset-env",
+			{
+				"targets": {
+					"browsers": "last 2 versions",
+					"node": "current"
+				},
+				"modules": false,
+				"loose": false
+			}
+		],
+		"@babel/preset-typescript"
+	],
+	// backward compatibility
+	"plugins": [
+		"transform-class-properties",
+		"syntax-dynamic-import",
+		"@babel/plugin-proposal-class-properties"
+	],
+	"env": {
+		"test": {
+			"plugins": ["transform-es2015-modules-commonjs"]
+		}
+	}
+}
