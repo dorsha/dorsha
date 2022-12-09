@@ -9,9 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Check issue contains relevant label
     steps:
-      - uses: actions/checkout@v3
       - if: |
-          github.event.issue.reopened
+          ${{ github.event.issue.reopened }}
         name: Close issue if has no labels
         uses: peter-evans/close-issue@v2
         with:
