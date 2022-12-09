@@ -2,7 +2,7 @@ name: Issue Guard
 
 on:
   issues:
-    types: [opened, closed]
+    types: [opened, closed, reopened]
 
 jobs:
   check-labels:
@@ -10,25 +10,25 @@ jobs:
     name: Check closed issue contains relevant label
     steps:
       - uses: actions/checkout@v3
-      - name: Re-open if closing labels not presented
-        uses: hramos/label-actions@v1
+      - if: (github.event.issue.opened || github.event.issue.reopened) && join(github.event.issue.labels) == ''
+        name: Close issue if has not labels
+        uses: peter-evans/close-issue@v2
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          close: github.event.issue.opened && join(github.event.issue.labels) == ''
+          labels: 'missing-labels'
           comment: |
             Missing labels
-      - name: Re-open if closing labels not presented
-        uses: hramos/label-actions@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          reopen: github.event.issue.closed && contains(github.event.issue.labels.*.name, 'cannot-reproduce', 'duplicate', 'invalid', 'question', 'wontfix')
-          comment: |
-            Missing closing label
-      - name: Add documentation label in case bug, enhancement or security issue got closed
-        uses: hramos/label-actions@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          labels: documentation
-          perform: github.event.issue.closed && contains(github.event.issue.labels.*.name, 'bug', 'enhancement', 'security', 'securityvulnerability')
-          comment: |
-            Require documentation
+      # - name: Re-open if closing labels not presented
+      #   uses: hramos/label-actions@v1
+      #   with:
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #     reopen: github.event.issue.closed && contains(github.event.issue.labels.*.name, 'cannot-reproduce', 'duplicate', 'invalid', 'question', 'wontfix')
+      #     comment: |
+      #       Missing closing label
+      # - name: Add documentation label in case bug, enhancement or security issue got closed
+      #   uses: hramos/label-actions@v1
+      #   with:
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #     labels: documentation
+      #     perform: github.event.issue.closed && contains(github.event.issue.labels.*.name, 'bug', 'enhancement', 'security', 'securityvulnerability')
+      #     comment: |
+      #       Require documentation
