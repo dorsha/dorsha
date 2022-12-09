@@ -9,13 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Check issue contains relevant label
     steps:
-      - if: join(github.event.issue.labels.*.name, '') == ''
+      - if: (github.event.issue.opened || github.event.issue.reopened) && join(github.event.issue.labels.*.name, '') == ''
         name: Close issue if has no labels
         uses: peter-evans/close-issue@v2
         with:
           comment: |
             Issue must have labels. Auto-closing this issue.
-      # ${{ (github.event.issue.opened || github.event.issue.reopened) && join(github.event.issue.labels.*.name, '') == '' }}
       # - name: Re-open if closing labels not presented
       #   uses: hramos/label-actions@v1
       #   with:
