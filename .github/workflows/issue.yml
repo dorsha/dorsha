@@ -10,7 +10,8 @@ jobs:
     name: Check issue contains relevant label
     steps:
       - uses: actions/checkout@v3
-      - if: true
+      - if: |
+          (github.event.issue.opened || github.event.issue.reopened) && (join(github.event.issue.labels) == '' || join(github.event.issue.labels) == 'missing-labels')
         name: Close issue if has no labels
         uses: peter-evans/close-issue@v2
         with:
