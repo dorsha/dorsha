@@ -10,7 +10,7 @@ jobs:
     name: Check issue contains relevant label
     steps:
       - if: |
-          ${{ (github.event.issue.opened || github.event.issue.reopened) && join(github.event.issue.labels) == ''}
+          ${{ (github.event.issue.opened || github.event.issue.reopened) && join(github.event.issue.labels) == '' }}
         name: Close issue if has no labels
         uses: peter-evans/close-issue@v2
         with:
