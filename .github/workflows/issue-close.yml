@@ -1,0 +1,28 @@
+name: Issue Guard - close
+
+on:
+  issues:
+    types: [closed]
+
+jobs:
+  check-labels:
+    runs-on: ubuntu-latest
+    name: Check closed issue
+    steps:
+      - if: contains(fromJson('["bug", "enhancement", "security", "securityvulnerability"]'), github.event.issue.labels.*.name)
+        name: Add documentation label for closed issue if needed
+        uses: actions/github-script@v6
+        script: |
+          github.rest.issues.addLabels({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            labels: ["documentation"]
+          })
+      # - name: Re-open if closing labels not presented
+      #   uses: hramos/label-actions@v1
+      #   with:
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #     reopen: github.event.issue.closed && contains(github.event.issue.labels.*.name, 'cannot-reproduce', 'duplicate', 'invalid', 'question', 'wontfix')
+      #     comment: |
+      #       Missing closing label

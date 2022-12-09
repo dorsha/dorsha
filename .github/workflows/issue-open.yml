@@ -1,0 +1,17 @@
+name: Issue Guard - open
+
+on:
+  issues:
+    types: [opened, reopened]
+
+jobs:
+  check-labels:
+    runs-on: ubuntu-latest
+    name: Check opened issue contains relevant label
+    steps:
+      - if: join(github.event.issue.labels.*.name, '') == ''
+        name: Close issue if has no labels
+        uses: peter-evans/close-issue@v2
+        with:
+          comment: |
+            Issue must have labels. Auto-closing this issue.
