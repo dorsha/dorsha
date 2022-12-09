@@ -15,7 +15,7 @@ jobs:
         uses: peter-evans/close-issue@v2
         with:
           comment: |
-            Issue must have labels. Auto-closing this issue.
+            Issue must have labels. Auto-closing this issue. ${{ join(github.event.issue.labels.*.name, '') }}
       # - name: Re-open if closing labels not presented
       #   uses: hramos/label-actions@v1
       #   with:
