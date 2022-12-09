@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - if: |
-          (github.event.issue.opened == 'true' || github.event.issue.reopened == 'true') && (join(github.event.issue.labels) == '' || join(github.event.issue.labels) == 'missing-labels')
+          (github.event.issue.opened == 'true' || github.event.issue.reopened == 'true') && ((join(github.event.issue.labels) == '' || join(github.event.issue.labels) == 'missing-labels')
         name: Close issue if has no labels
         uses: peter-evans/close-issue@v2
         with:
