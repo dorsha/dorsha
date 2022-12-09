@@ -10,13 +10,12 @@ jobs:
     name: Check issue contains relevant label
     steps:
       - if: |
-          ${{ (github.event.issue.opened || github.event.issue.reopened) && (join(github.event.issue.labels) == '' || join(github.event.issue.labels) == 'missing-labels') }}
+          ${{ (github.event.issue.opened || github.event.issue.reopened) && join(github.event.issue.labels) == ''}
         name: Close issue if has no labels
         uses: peter-evans/close-issue@v2
         with:
-          labels: 'missing-labels'
           comment: |
-            Missing labels
+            Issue must have labels. Auto-closing this issue.
       # - name: Re-open if closing labels not presented
       #   uses: hramos/label-actions@v1
       #   with:
