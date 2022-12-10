@@ -23,7 +23,7 @@ jobs:
               repo: context.repo.repo,
               title: [Documentation] - context.issue.title,
               labels: ["documentation"],
-              body: Documentation issue for: context.issue.title
+              body: Documentation issue for: context.issue.url
             })
             github.rest.issues.addLabels({
               issue_number: context.issue.number,
