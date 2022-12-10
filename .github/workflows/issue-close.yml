@@ -40,7 +40,7 @@ jobs:
             })
             github.rest.issues.createComment({
               issue_number: context.issue.number,
-              owner,
-              repo,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
               body: "Missing one of the closing labels: 'cannot-reproduce', 'duplicate', 'invalid', 'wontfix'"
             });
