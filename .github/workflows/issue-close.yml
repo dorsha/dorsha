@@ -12,7 +12,7 @@ jobs:
       - name: View context attributes
         uses: actions/github-script@v6
         with:
-          script: '${{github.event.issue}}'
+          script: console.log(context)
       - if: "!contains(github.event.issue.labels.*.name, 'documentation') && (contains(github.event.issue.labels.*.name, 'bug') || contains(github.event.issue.labels.*.name, 'enhancement')  || contains(github.event.issue.labels.*.name, 'security') || contains(github.event.issue.labels.*.name, 'securityvulnerability'))"
         name: Add documentation label for closed issue if needed
         uses: actions/github-script@v6
@@ -23,7 +23,7 @@ jobs:
               repo: context.repo.repo,
               labels: ["documentation"],
               title: "[Documentation] - ${{github.event.issue.title}}",
-              body: "Documentation issue for: ${{github.event.issue.url}}"
+              body: context.issue.url
             })
       # - name: Re-open if closing labels not presented
       #   uses: hramos/label-actions@v1
