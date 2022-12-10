@@ -21,15 +21,9 @@ jobs:
             github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: [Documentation] - context.issue.title,
               labels: ["documentation"],
-              body: Documentation issue for: context.issue.url
-            })
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ["documentation"]
+              title: "[Documentation]",
+              body: "Documentation issue for: context.issue.url"
             })
       # - name: Re-open if closing labels not presented
       #   uses: hramos/label-actions@v1
