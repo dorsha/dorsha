@@ -28,7 +28,7 @@ jobs:
               body: "Documentation issue for: ${{github.event.issue.html_url}}"
             })
       - if: "!contains(github.event.issue.labels.*.name, 'cannot-reproduce') && !contains(github.event.issue.labels.*.name, 'duplicate') && !contains(github.event.issue.labels.*.name, 'invalid') && !contains(github.event.issue.labels.*.name, 'question') && !contains(github.event.issue.labels.*.name, 'wontfix') && !contains(github.event.issue.labels.*.name, 'documentation') && !contains(github.event.issue.labels.*.name, 'documentation-linked')"
-        name: Add documentation label for closed issue if needed
+        name: Reopen issue if not having closing labels
         uses: actions/github-script@v6
         with:
           script: |
@@ -36,7 +36,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              state: open
+              state: "open"
             })
             github.rest.issues.createComment({
               issue_number: context.issue.number,
