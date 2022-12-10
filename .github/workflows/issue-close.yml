@@ -12,7 +12,7 @@ jobs:
       - name: View context attributes
         uses: actions/github-script@v6
         with:
-          script: 'console.log(${{github.event.issue}})'
+          script: '${{github.event.issue}}'
       - if: "!contains(github.event.issue.labels.*.name, 'documentation') && (contains(github.event.issue.labels.*.name, 'bug') || contains(github.event.issue.labels.*.name, 'enhancement')  || contains(github.event.issue.labels.*.name, 'security') || contains(github.event.issue.labels.*.name, 'securityvulnerability'))"
         name: Add documentation label for closed issue if needed
         uses: actions/github-script@v6
