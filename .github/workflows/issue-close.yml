@@ -22,8 +22,8 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               labels: ["documentation"],
-              title: "[Documentation] - ${context.issue.title}",
-              body: "Documentation issue for: ${context.issue.url}"
+              title: "[Documentation] - ${{context.issue.title}}",
+              body: "Documentation issue for: ${{context.issue.url}}"
             })
       # - name: Re-open if closing labels not presented
       #   uses: hramos/label-actions@v1
