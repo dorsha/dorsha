@@ -9,10 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Check closed issue
     steps:
-      - name: View context attributes
-        uses: actions/github-script@v6
-        with:
-          script: console.log(context)
       - if: "!contains(github.event.issue.labels.*.name, 'documentation') && (contains(github.event.issue.labels.*.name, 'bug') || contains(github.event.issue.labels.*.name, 'enhancement')  || contains(github.event.issue.labels.*.name, 'security') || contains(github.event.issue.labels.*.name, 'securityvulnerability'))"
         name: Add documentation label for closed issue if needed
         uses: actions/github-script@v6
@@ -25,10 +21,18 @@ jobs:
               title: "[Documentation] - ${{github.event.issue.title}}",
               body: "Documentation issue for: ${{github.event.issue.html_url}}"
             })
-      # - name: Re-open if closing labels not presented
-      #   uses: hramos/label-actions@v1
-      #   with:
-      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
-      #     reopen: github.event.issue.closed && contains(github.event.issue.labels.*.name, 'cannot-reproduce', 'duplicate', 'invalid', 'question', 'wontfix')
-      #     comment: |
-      #       Missing closing label
+      - if: "!contains(github.event.issue.labels.*.name, 'cannot-reproduce') && !contains(github.event.issue.labels.*.name, 'duplicate') && !contains(github.event.issue.labels.*.name, 'invalid') && !contains(github.event.issue.labels.*.name, 'question') && !contains(github.event.issue.labels.*.name, 'wontfix')"
+        name: Add documentation label for closed issue if needed
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: open
+            })
+            github.rest.issues.createComment({
+              owner,
+              repo,
+              body: "Missing one of the closing labels: 'cannot-reproduce', 'duplicate', 'invalid', 'question', 'wontfix'"
+            });
