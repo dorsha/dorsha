@@ -23,7 +23,7 @@ jobs:
               repo: context.repo.repo,
               labels: ["documentation"],
               title: "[Documentation] - ${{github.event.issue.title}}",
-              body: "Documentation issue for: ${github.event.issue.html_url}}"
+              body: "Documentation issue for: ${{github.event.issue.html_url}}"
             })
       # - name: Re-open if closing labels not presented
       #   uses: hramos/label-actions@v1
